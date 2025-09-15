@@ -49,4 +49,29 @@ const create = (req, res) => {
   });
 };
 
-export { getAll, getByID, create };
+const deletar = (req, res) => {
+  let id = parseInt(req.params.id);
+
+  const brinquedoParaDeletar = brinquedos.find((b) => b.id === id);
+
+  if (!brinquedoParaDeletar) {
+    return res.status(404).json({
+      sucess: false,
+      message: `Esse ID de brinquedo não existe: ${id}`,
+    });
+  }
+
+  const brinquedosFiltrados = brinquedos.filter(
+    brinquedo => brinquedo.id != id
+  );
+
+  brinquedos.splice(0, brinquedos.length, ...brinquedosFiltrados);
+
+  res.status(200).json({
+    sucess: true,
+    message: "Brinquedo deletado com sucesso!",
+    brinquedoDeletado: brinquedoParaDeletar,
+  });
+};
+
+export { getAll, getByID, create, deletar };
