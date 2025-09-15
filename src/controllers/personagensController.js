@@ -21,4 +21,32 @@ const getByID = (req, res) => {
   }
 };
 
-export { getAll, getByID };
+const create = (req, res) => {
+  const { nome, tipo, anoFabricacao, cor, quantidadesEstoque } = req.body;
+
+  if (!nome || !tipo) {
+    return res.status(400).json({
+      sucess: false,
+      message: "Nome e tipo são campos obrigatórios!",
+    });
+  }
+
+  const novoBrinquedo = {
+    id: brinquedos.length++,
+    nome: nome,
+    tipo: tipo,
+    anoFabricacao: anoFabricacao,
+    cor: cor,
+    quantidadesEstoque: quantidadesEstoque,
+  };
+
+  brinquedos.push(novoBrinquedo);
+
+  res.status(200).json({
+    sucess: true,
+    message: "Brinquedo criado com sucesso!",
+    data: novoBrinquedo,
+  });
+};
+
+export { getAll, getByID, create };
