@@ -1,4 +1,3 @@
-import { parse } from "dotenv";
 import dados from "../models/dados.js";
 const { brinquedos } = dados;
 

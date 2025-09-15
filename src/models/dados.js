@@ -6,6 +6,9 @@ const brinquedos = [
     anoFabricacao: 1950,
     cor: "Marrom",
     quantidadeEstoque: 15,
+    habilidadeEspecial: "Puxar a corda para falar",
+    fraseFamosa: "Tem uma cobra na minha bota!"
+
   },
   {
     id: 2,
@@ -14,6 +17,8 @@ const brinquedos = [
     anoFabricacao: 1995,
     cor: "Branco e Verde",
     quantidadeEstoque: 20,
+    habilidadeEspecial: "Asas retráteis e laser",
+    fraseFamosa: "Ao infinito e além!"
   },
   {
     id: 3,
@@ -22,6 +27,8 @@ const brinquedos = [
     anoFabricacao: 1955,
     cor: "Vermelho e Branco",
     quantidadeEstoque: 10,
+    habilidadeEspecial: "Canto tirolês",
+    fraseFamosa: "Yodela-hi-ho!"
   },
   {
     id: 4,
@@ -30,6 +37,8 @@ const brinquedos = [
     anoFabricacao: 1952,
     cor: "Marrom",
     quantidadeEstoque: 8,
+    habilidadeEspecial: "Remover e recolocar partes do corpo",
+    fraseFamosa: "Ei, cadê meu nariz?"
   },
   {
     id: 5,
@@ -38,6 +47,8 @@ const brinquedos = [
     anoFabricacao: 1990,
     cor: "Verde",
     quantidadeEstoque: 5,
+    habilidadeEspecial: "Rugido assustador (mas nem tanto)",
+    fraseFamosa: "Eu sou um Tiranossauro-Rex... Eu sou assustador!"
   },
   {
     id: 6,
@@ -46,6 +57,8 @@ const brinquedos = [
     anoFabricacao: 1950,
     cor: "Marrom",
     quantidadeEstoque: 12,
+    habilidadeEspecial: "Esticar o corpo de mola",
+    fraseFamosa: "Vamos, pessoal, é por aqui!"
   },
   {
     id: 7,
@@ -54,6 +67,8 @@ const brinquedos = [
     anoFabricacao: 1955,
     cor: "Rosa e Branco",
     quantidadeEstoque: 7,
+    habilidadeEspecial: "Controlar o rebanho de ovelhas",
+    fraseFamosa: "Eu não sou apenas um brinquedo de lâmpada."
   },
   {
     id: 8,
@@ -62,6 +77,8 @@ const brinquedos = [
     anoFabricacao: 1960,
     cor: "Verde",
     quantidadeEstoque: 30,
+    habilidadeEspecial: "Sincronia perfeita e camuflagem",
+    fraseFamosa: "Missão dada é missão cumprida!"
   },
   {
     id: 9,
@@ -70,6 +87,8 @@ const brinquedos = [
     anoFabricacao: 1995,
     cor: "Verde Claro",
     quantidadeEstoque: 25,
+    habilidadeEspecial: "Visão 3D e adoração",
+    fraseFamosa: "O Gaaarrraaancho!"
   },
   {
     id: 10,
@@ -78,6 +97,8 @@ const brinquedos = [
     anoFabricacao: 1955,
     cor: "Marrom",
     quantidadeEstoque: 9,
+    habilidadeEspecial: "Correr super rápido",
+    fraseFamosa: "Relincho!"
   },
 ];
 
