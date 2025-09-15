@@ -1,3 +1,4 @@
+import { parse } from "dotenv";
 import dados from "../models/dados.js";
 const { brinquedos } = dados;
 
@@ -62,7 +63,7 @@ const deletar = (req, res) => {
   }
 
   const brinquedosFiltrados = brinquedos.filter(
-    brinquedo => brinquedo.id != id
+    (brinquedo) => brinquedo.id !== id
   );
 
   brinquedos.splice(0, brinquedos.length, ...brinquedosFiltrados);
@@ -74,4 +75,55 @@ const deletar = (req, res) => {
   });
 };
 
-export { getAll, getByID, create, deletar };
+const update = (req, res) => {
+  const id = parseInt(req.params.id);
+
+  const { nome, tipo, anoFabricacao, cor, quantidadesEstoque } = req.body;
+
+  const idParaEditar = id;
+
+  if (isNaN(idParaEditar)) {
+    return res.status(400).json({
+      sucess: false,
+      message: "O ID deve ser um número válido!",
+    });
+  }
+
+  const brinquedoExiste = brinquedos.find(
+    (brinquedo) => brinquedo.id === idParaEditar
+  );
+
+  if (!brinquedoExiste) {
+    return res.status(400).json({
+      sucess: false,
+      message: `Brinquedo com id: ${id} não existe`,
+    });
+  }
+
+  const brinquedosAtualizados = brinquedos.map((brinquedo) =>
+    brinquedo.id === idParaEditar
+      ? {
+          ...brinquedo,
+          ...(nome && { nome }),
+          ...(tipo && { tipo }),
+          ...(anoFabricacao && { anoFabricacao: parseInt(anoFabricacao) }),
+          ...(cor && { cor }),
+          ...(quantidadesEstoque && { quantidadesEstoque }),
+        }
+      : brinquedo
+  );
+
+  brinquedos.splice(0, brinquedos.length, ...brinquedosAtualizados);
+
+  const brinquedoNovo = brinquedos.find(
+    (brinquedo) => brinquedo.id === idParaEditar
+  );
+
+  res.status(200).json({
+    sucess: true,
+    message: `Dados de Brinquedo ID ${idParaEditar} atualizados com sucesso!`,
+    brinquedo: brinquedoNovo,
+  });
+};
+
+export { getAll, getByID, create, deletar, update };
