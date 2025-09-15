@@ -8,4 +8,17 @@ const getAll = (req, res) => {
   });
 };
 
-export {getAll};
+const getByID = (req, res) => {
+  const id = parseInt(req.params.id);
+  const brinquedo = brinquedos.find((b) => b.id === id);
+
+  if (brinquedo) {
+    res.status(200).json(brinquedo);
+  } else {
+    res.status(404).json({
+      mensagem: "Esse brinquedo não existe",
+    });
+  }
+};
+
+export { getAll, getByID };
