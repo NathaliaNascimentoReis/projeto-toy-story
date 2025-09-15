@@ -1,0 +1,39 @@
+{
+  "name": "projeto-toy-story",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathaliaNascimentoReis/projeto-toy-story.git"
+  },
+  "keywords": [
+    "BACKEND",
+    "Json",
+    "JavaScript",
+    "SENAI",
+    "Nodemon",
+    "Express",
+    "NPM",
+    "dotenv",
+    "localhost",
+    "API",
+    "MVC"
+  ],
+  "author": "Nathalia Nascimento Reis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NathaliaNascimentoReis/projeto-toy-story/issues"
+  },
+  "homepage": "https://github.com/NathaliaNascimentoReis/projeto-toy-story#readme",
+  "description": "Criar uma API RESTful completa em Node.js com Express, responsável por gerenciar um cadastro dos personagens do filme Toy Story.",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
