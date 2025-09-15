@@ -1,21 +1,47 @@
-import { parse } from "dotenv";
+import nodemon from "nodemon";
 import dados from "../models/dados.js";
 const { brinquedos } = dados;
 
 const getAll = (req, res) => {
-    const {tipo} = req.query;
-        let resultado = brinquedos
-    
-        if (tipo) {
-            resultado = resultado.filter((b) => b.tipo.toLowerCase().includes(tipo.toLowerCase()))
-        }
+  const { nome, tipo, anoFabricacao, cor, quantidadesEstoque } = req.query;
 
-    res.status(200).json({
-        total: brinquedos.length,
-        data: brinquedos,
-    });
+  let resultado = brinquedos;
+
+  if (nome) {
+    resultado = resultado.filter((b) =>
+      b.nome.toLowerCase().includes(nome.toLowerCase())
+    );
+  }
+
+  if (anoFabricacao) {
+    resultado = resultado.filter((b) =>
+      b.anoFabricacao.toLowerCase().includes(tipo.toLowerCase())
+    );
+  }
+
+  if (cor) {
+    resultado = resultado.filter((b) =>
+      b.cor.toLowerCase().includes(tipo.toLowerCase())
+    );
+  }
+
+  if (quantidadesEstoque) {
+    resultado = resultado.filter((b) =>
+      b.quantidadeEstoque.toLowerCase().includes(tipo.toLowerCase())
+    );
+  }
+
+  if (tipo) {
+    resultado = resultado.filter((b) =>
+      b.tipo.toLowerCase().includes(tipo.toLowerCase())
+    );
+  }
+
+  res.status(200).json({
+    total: resultado.length,
+    data: resultado,
+  });
 };
-
 
 const getByID = (req, res) => {
   const id = parseInt(req.params.id);
@@ -134,4 +160,4 @@ const update = (req, res) => {
   });
 };
 
-export { getAll, getByID, create, deletar, update, tipoFiltro};
+export { getAll, getByID, create, deletar, update };
