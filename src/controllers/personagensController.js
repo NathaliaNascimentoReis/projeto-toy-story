@@ -1,12 +1,21 @@
+import { parse } from "dotenv";
 import dados from "../models/dados.js";
 const { brinquedos } = dados;
 
 const getAll = (req, res) => {
-  res.status(200).json({
-    total: brinquedos.length,
-    data: brinquedos,
-  });
+    const {tipo} = req.query;
+        let resultado = brinquedos
+    
+        if (tipo) {
+            resultado = resultado.filter((b) => b.tipo.toLowerCase().includes(tipo.toLowerCase()))
+        }
+
+    res.status(200).json({
+        total: brinquedos.length,
+        data: brinquedos,
+    });
 };
+
 
 const getByID = (req, res) => {
   const id = parseInt(req.params.id);
@@ -125,4 +134,4 @@ const update = (req, res) => {
   });
 };
 
-export { getAll, getByID, create, deletar, update };
+export { getAll, getByID, create, deletar, update, tipoFiltro};
