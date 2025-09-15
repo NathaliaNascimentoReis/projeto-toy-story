@@ -1,4 +1,4 @@
-const memoriaPersonagens = [
+const brinquedos = [
   {
     id: 1,
     nome: "Woody",
@@ -81,4 +81,4 @@ const memoriaPersonagens = [
   },
 ];
 
-export default { memoriaPersonagens };
+export default { brinquedos };
